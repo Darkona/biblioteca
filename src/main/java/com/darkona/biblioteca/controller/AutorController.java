@@ -12,7 +12,7 @@ import java.util.List;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @RestController
-@RequestMapping ("libro/autor")
+@RequestMapping ("/autor")
 public class AutorController {
 
     @Autowired
@@ -26,7 +26,7 @@ public class AutorController {
         return autorService.obtenerTodosLosAutores();
     }
 
-    @PutMapping(path = "", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
+    @PostMapping(path = "", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
     public Autor crearAutor(@RequestBody Autor autor){
         return autorService.crearAutor(autor);
     }
@@ -41,6 +41,8 @@ public class AutorController {
         throw new ResourceNotFoundException();
     }
 
+    @DeleteMapping(path = "/{id}")
+    public boolean eliminarAutor(@PathVariable ("id") int id){return autorService.eliminarAutor(id) == null;}
 
 
 

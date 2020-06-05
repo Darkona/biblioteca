@@ -39,7 +39,10 @@ public class AutorService {
         }
     }
 
-
+    public Autor eliminarAutor(int id){
+        autorRepository.deleteById(id);
+        return autorRepository.findAutorById(id);
+    }
 
 
 
