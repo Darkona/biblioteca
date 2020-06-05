@@ -2,7 +2,7 @@ package com.darkona.biblioteca.controller;
 
 import com.darkona.biblioteca.exception.ResourceNotFoundException;
 import com.darkona.biblioteca.model.Libro;
-import com.darkona.biblioteca.model.LibroAutor;
+import com.darkona.biblioteca.model.viewmodel.ViewModelLibroAutor;
 import com.darkona.biblioteca.service.LibroService;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -38,7 +38,7 @@ public class LibroController {
 
         return libroService.obtenerTitulosLibros()
                 .stream()
-                .map(LibroAutor::toString)
+                .map(ViewModelLibroAutor::toString)
                 .collect(Collectors.toList());
     }
 

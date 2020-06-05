@@ -15,4 +15,4 @@ ${spring.application.name} version ${application.version}
 
 SpringBoot: ${AnsiColor.RED}${spring-boot.version}${AnsiStyle.NORMAL}
 
-
+Conectando a base de datos en: ${MYSQL_HOST} con usuario: ${DB_USER} y password: ${DB_PASS}

@@ -6,4 +6,5 @@ import org.springframework.data.repository.CrudRepository;
 public interface EditorialRepository extends CrudRepository<Editorial, Integer> {
 
 
+    Editorial findEditorialById(Integer id);
 }

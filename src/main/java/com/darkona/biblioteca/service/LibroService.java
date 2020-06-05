@@ -1,15 +1,12 @@
 package com.darkona.biblioteca.service;
 
 import com.darkona.biblioteca.model.Libro;
-import com.darkona.biblioteca.model.LibroAutor;
+import com.darkona.biblioteca.model.viewmodel.ViewModelLibroAutor;
 import com.darkona.biblioteca.repository.LibroRepository;
 import org.apache.commons.text.WordUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.HttpClientErrorException;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -32,12 +29,12 @@ public class LibroService {
     }
 
 
-    public List<LibroAutor> obtenerTitulosLibros(){
+    public List<ViewModelLibroAutor> obtenerTitulosLibros(){
         List<Libro> libros = (List<Libro>)libroRepository.findAll();
 
         return libros
                 .stream()
-                .map(l -> new LibroAutor(l) )
+                .map(ViewModelLibroAutor::new)
                 .collect(Collectors.toList());
     }
 

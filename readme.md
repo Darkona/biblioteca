@@ -10,3 +10,4 @@ Acciones a programar:
 - Testing
 - Interfaz
 - Datos de prueba en bdd automaticos
+- Localization

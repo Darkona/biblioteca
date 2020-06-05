@@ -1,17 +1,19 @@
-package com.darkona.biblioteca.model;
+package com.darkona.biblioteca.model.viewmodel;
 
+import com.darkona.biblioteca.model.Autor;
+import com.darkona.biblioteca.model.Libro;
 import lombok.Data;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.text.WordUtils;
 
 @Data
-public class LibroAutor {
+public class ViewModelLibroAutor {
 
     private Long id;
     private String titulo;
     private Autor autor;
 
-    public LibroAutor(Libro l){
+    public ViewModelLibroAutor(Libro l){
         this.id = l.getId();
         this.titulo = WordUtils.capitalize(l.getTitulo());
         this.autor = l.getAutor();
