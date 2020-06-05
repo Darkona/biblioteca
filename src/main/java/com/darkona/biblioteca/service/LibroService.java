@@ -32,7 +32,6 @@ public class LibroService {
     }
 
 
-
     public List<LibroAutor> obtenerTitulosLibros(){
         List<Libro> libros = (List<Libro>)libroRepository.findAll();
 
@@ -55,6 +54,11 @@ public class LibroService {
     }
 
     public Libro obtenerLibroPorId(Long id) {
+        return libroRepository.findLibroById(id);
+    }
+
+    public Libro eliminarLibro(Long id){
+        libroRepository.deleteById(id);
         return libroRepository.findLibroById(id);
     }
 }

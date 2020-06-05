@@ -1,0 +1,18 @@
+  __                                __
+ / _)  '  /  /  '    _/  _  _  _   /__)  _   _ _/
+/(_)  /  () (  /  () /  (- (  (/  / (   (- _)  /
+${AnsiBackground.CYAN}        .--.                   .---.   ${AnsiStyle.NORMAL}
+${AnsiBackground.CYAN}    .---|__|           .-.     |~~~|   ${AnsiStyle.NORMAL}
+${AnsiBackground.CYAN} .--|===|--|_          |_|     |~~~|--.${AnsiStyle.NORMAL}
+${AnsiBackground.CYAN} |  |===|  |'\     .---!~|  .--|   |--|${AnsiStyle.NORMAL}
+${AnsiBackground.CYAN} |%%|   |  |.'\    |===| |--|%%|   |  |${AnsiStyle.NORMAL}
+${AnsiBackground.CYAN} |%%|   |  |\.'\   |   | |__|  |   |  |${AnsiStyle.NORMAL}
+${AnsiBackground.CYAN} |  |   |  | \  \  |===| |==|  |   |  |${AnsiStyle.NORMAL}
+${AnsiBackground.CYAN} |  |   |__|  \.'\ |   |_|__|  |~~~|__|${AnsiStyle.NORMAL}
+${AnsiBackground.CYAN} |  |===|--|   \.'\|===|~|--|%%|~~~|--|${AnsiStyle.NORMAL}
+${AnsiBackground.CYAN} ^--^---'--^    `-'`---^-^--^--^---'--'${AnsiStyle.NORMAL}
+${spring.application.name} version ${application.version}
+
+SpringBoot: ${AnsiColor.RED}${spring-boot.version}${AnsiStyle.NORMAL}
+
+
