@@ -31,8 +31,6 @@ public class Libro  {
 
     private String ISBN;
 
-    private String genero;
-
     private int edicion;
 
     private int year;
@@ -45,6 +43,9 @@ public class Libro  {
 
     @JsonIgnore
     private boolean active = true;
+
+    @ManyToOne
+    private Genero genero;
 
     @Override
     public String toString(){

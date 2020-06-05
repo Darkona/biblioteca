@@ -1,6 +1,5 @@
 package com.darkona.biblioteca.model;
 
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.hibernate.annotations.ResultCheckStyle;
@@ -14,26 +13,23 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Entity
 @Table
-@SQLDelete(sql = "UPDATE autor SET active = false WHERE id = ?", check = ResultCheckStyle.COUNT)
+@SQLDelete(sql = "UPDATE genero SET active = false WHERE id = ?", check = ResultCheckStyle.COUNT)
 @Where(clause = "active = true")
-public class Autor {
+
+public class Genero {
 
     @Id
     @NonNull
     @Column(name = "id", updatable = false, nullable = false, unique = true)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-
+    private Integer id ;
     private String nombre;
-    private String apellido;
 
     @JsonIgnore
     private boolean active = true;
 
     @Override
     public String toString(){
-        return String.format("ID: %d, %s %s", id , nombre , apellido);
+        return String.format("Id: %d , %s", id, nombre);
     }
-
-
 }
