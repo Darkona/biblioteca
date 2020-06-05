@@ -42,9 +42,7 @@ public class LibroController {
                 .collect(Collectors.toList());
     }
 
-    @PostMapping(path = "",
-            consumes = MediaType.APPLICATION_JSON_VALUE,
-            produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(path = "", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public Libro crearLibro(@RequestBody Libro libro) {
 
         return libroService.crearLibro(libro);
