@@ -63,7 +63,6 @@ public class LibroController {
 
     @DeleteMapping(path = "/{id}")
     public boolean eliminarLibro(@PathVariable("id") Long id) {
-
-        return true;
+        return libroService.eliminarLibro(id) == null;
     }
 }

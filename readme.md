@@ -9,3 +9,4 @@ Acciones a programar:
 - Validaciones
 - Testing
 - Interfaz
+- Datos de prueba en bdd automaticos
