@@ -4,6 +4,8 @@ import com.darkona.biblioteca.exception.ResourceNotFoundException;
 import com.darkona.biblioteca.model.Libro;
 import com.darkona.biblioteca.model.viewmodel.ViewModelLibroAutor;
 import com.darkona.biblioteca.service.LibroService;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,55 +14,53 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("libro")
+@Slf4j
 public class LibroController {
 
-    private final LibroService libroService;
-
-    public LibroController(LibroService libroService) {
-
-        this.libroService = libroService;
-    }
-
+    @Autowired
+    private LibroService libroService;
 
     @GetMapping(path ="/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Libro detallesLibro(@PathVariable Long id){
-        return libroService.obtenerLibroPorId(id);
+    public Libro bookDetails(@PathVariable Long id){
+        log.info(String.format("Called with id %d", id));
+        return libroService.getBookById(id);
     }
 
     @GetMapping(path = "/list", produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Libro> todosLibros() {
-
-        return libroService.obtenerTodosLosLibros();
+    public List<Libro> allBooks() {
+        log.info("Called");
+        return libroService.getAllBooks();
     }
 
     @GetMapping(path = "/list/titles")
-    public List<String> todosTitulos() {
-
-        return libroService.obtenerTitulosLibros()
+    public List<String> allTitles() {
+        log.info("Called");
+        return libroService.getAllBookShort()
                 .stream()
                 .map(ViewModelLibroAutor::toString)
                 .collect(Collectors.toList());
     }
 
     @PostMapping(path = "", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Libro crearLibro(@RequestBody Libro libro) {
-
-        return libroService.crearLibro(libro);
+    public Libro createBook(@RequestBody Libro libro) {
+        log.info("Called");
+        return libroService.createBook(libro);
     }
 
 
     @PutMapping(path = "/{id}")
-    public Libro modificarLibro(@PathVariable("id") Long id, @RequestBody Libro libro) {
-
-        if (libroService.obtenerLibroPorId(id) != null) {
+    public Libro editBook(@PathVariable("id") Long id, @RequestBody Libro libro) {
+        log.info("Called");
+        if (libroService.getBookById(id) != null) {
             libro.setId(id);
-            return libroService.modificarLibro(libro);
+            return libroService.editBook(libro);
         }
         throw new ResourceNotFoundException();
     }
 
     @DeleteMapping(path = "/{id}")
-    public boolean eliminarLibro(@PathVariable("id") Long id) {
-        return libroService.eliminarLibro(id) == null;
+    public boolean deleteBook(@PathVariable("id") Long id) {
+        log.info("Called");
+        return libroService.deleteBook(id) == null;
     }
 }

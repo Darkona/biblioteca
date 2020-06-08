@@ -28,6 +28,7 @@ public class Autor {
     private String apellido;
 
     @JsonIgnore
+    @Column(name = "active", columnDefinition = "boolean default true")
     private boolean active = true;
 
     @Override

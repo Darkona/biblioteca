@@ -42,6 +42,7 @@ public class Libro  {
     private Autor autor;
 
     @JsonIgnore
+    @Column(name = "active", columnDefinition = "boolean default true")
     private boolean active = true;
 
     @ManyToOne

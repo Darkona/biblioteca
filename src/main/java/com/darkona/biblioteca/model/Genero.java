@@ -15,7 +15,6 @@ import javax.persistence.*;
 @Table
 @SQLDelete(sql = "UPDATE genero SET active = false WHERE id = ?", check = ResultCheckStyle.COUNT)
 @Where(clause = "active = true")
-
 public class Genero {
 
     @Id
@@ -26,6 +25,7 @@ public class Genero {
     private String nombre;
 
     @JsonIgnore
+    @Column(name = "active", columnDefinition = "boolean default true")
     private boolean active = true;
 
     @Override
