@@ -10,6 +10,7 @@ import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 @Data
 @NoArgsConstructor
@@ -27,6 +28,7 @@ public class Libro  {
     private Long id;
 
     @Column(name = "titulo", length = 1024)
+    @NotBlank(message = "NO PUEDE SER UN TITULO EN BLANCO PUTO")
     private String titulo;
 
     private String ISBN;
