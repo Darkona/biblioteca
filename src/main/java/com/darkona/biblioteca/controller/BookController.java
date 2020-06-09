@@ -9,10 +9,10 @@ import java.util.List;
 
 
 @RequestMapping(
-        value = "libro",
+        value = "book",
         produces = MediaType.APPLICATION_JSON_VALUE
 )
-public interface LibroController {
+public interface BookController {
 
     @GetMapping(path ="/{id}")
     Libro bookDetails(@PathVariable Long id);

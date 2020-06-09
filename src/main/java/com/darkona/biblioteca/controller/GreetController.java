@@ -1,45 +1,20 @@
 package com.darkona.biblioteca.controller;
 
-import com.darkona.biblioteca.service.GreetService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
-public class GreetController {
-
-
-    @Autowired
-    private GreetService greetService;
-
+public interface GreetController {
     @GetMapping("greet")
-    public String greet() {
-
-        return greetService.prepareGreet();
-    }
+    String greet();
 
     @PostMapping("greet")
-    public String postGreet(@RequestBody String name) {
-
-        return greetService.makeCustomGreet(name);
-    }
+    String postGreet(@RequestBody String name);
 
     @PutMapping("greet")
-    public String putGreet() {
-
-        return "put";
-    }
+    String putGreet();
 
     @DeleteMapping("greet")
-    public String deleteGreet() {
-
-        return "delete";
-    }
+    String deleteGreet();
 
     @PatchMapping("greet")
-    public String patchGreet() {
-
-        return "patch";
-    }
-
-
+    String patchGreet();
 }
