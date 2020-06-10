@@ -8,6 +8,7 @@ import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @Data
 @RequiredArgsConstructor
@@ -16,6 +17,7 @@ import javax.persistence.*;
 @Table
 @SQLDelete(sql = "UPDATE autor SET active = false WHERE id = ?", check = ResultCheckStyle.COUNT)
 @Where(clause = "active = true")
+@XmlRootElement
 public class Author {
 
     @Id

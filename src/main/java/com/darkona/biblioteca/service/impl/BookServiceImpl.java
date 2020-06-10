@@ -3,7 +3,7 @@ package com.darkona.biblioteca.service.impl;
 import com.darkona.biblioteca.model.Book;
 import com.darkona.biblioteca.model.viewmodel.ViewModelLibroAutor;
 import com.darkona.biblioteca.repository.BookRepository;
-import com.darkona.biblioteca.service.LibroService;
+import com.darkona.biblioteca.service.BookService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.text.WordUtils;
 import org.springframework.stereotype.Service;
@@ -14,11 +14,11 @@ import java.util.stream.Collectors;
 
 @Slf4j
 @Service
-public class LibroServiceImpl implements LibroService {
+public class BookServiceImpl implements BookService {
 
     private final BookRepository bookRepository;
 
-    public LibroServiceImpl(BookRepository bookRepository) {
+    public BookServiceImpl(BookRepository bookRepository) {
 
         this.bookRepository = bookRepository;
     }

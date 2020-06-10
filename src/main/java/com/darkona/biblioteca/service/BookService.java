@@ -6,7 +6,7 @@ import com.darkona.biblioteca.model.viewmodel.ViewModelLibroAutor;
 import java.util.List;
 
 
-public interface LibroService {
+public interface BookService {
 
     List<Book> getAllBooks();
 

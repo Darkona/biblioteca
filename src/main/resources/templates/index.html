@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head >
+
+    <title>Biblioteca Rest Service</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<Body>
+    <h1>
+        <!--/*@thymesVar id="name" type="name"*/-->
+        <span th:text=" ${name} ? 'Biblioteca Service is Online. Hello ' + ${name} + '!' : ''" style="color:green">Biblioteca Rest Service online!</span>
+
+        <ul>
+            <li></li>
+        </ul>
+    </h1>
+</Body>
+</html>
