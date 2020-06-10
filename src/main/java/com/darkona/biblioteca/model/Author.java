@@ -16,7 +16,7 @@ import javax.persistence.*;
 @Table
 @SQLDelete(sql = "UPDATE autor SET active = false WHERE id = ?", check = ResultCheckStyle.COUNT)
 @Where(clause = "active = true")
-public class Autor {
+public class Author {
 
     @Id
     @NonNull
@@ -24,8 +24,8 @@ public class Autor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private String nombre;
-    private String apellido;
+    private String name;
+    private String lastName;
 
     @JsonIgnore
     @Column(name = "active", columnDefinition = "boolean default true")
@@ -33,7 +33,7 @@ public class Autor {
 
     @Override
     public String toString(){
-        return String.format("ID: %d, %s %s", id , nombre , apellido);
+        return String.format("ID: %d, %s %s", id , name, lastName);
     }
 
 

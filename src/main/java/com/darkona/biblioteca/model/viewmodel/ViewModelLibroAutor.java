@@ -1,7 +1,7 @@
 package com.darkona.biblioteca.model.viewmodel;
 
-import com.darkona.biblioteca.model.Autor;
-import com.darkona.biblioteca.model.Libro;
+import com.darkona.biblioteca.model.Author;
+import com.darkona.biblioteca.model.Book;
 import lombok.Data;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.text.WordUtils;
@@ -11,17 +11,17 @@ public class ViewModelLibroAutor {
 
     private Long id;
     private String titulo;
-    private Autor autor;
+    private Author author;
 
-    public ViewModelLibroAutor(Libro l){
+    public ViewModelLibroAutor(Book l){
         this.id = l.getId();
-        this.titulo = WordUtils.capitalize(l.getTitulo());
-        this.autor = l.getAutor();
+        this.titulo = WordUtils.capitalize(l.getTitle());
+        this.author = l.getAuthor();
     }
 
     @Override
     public String toString(){
-        return String.format("%s - %s, %s : %s", StringUtils.leftPad(this.getId().toString(), 5, "0"), autor.getApellido(), autor.getNombre(), titulo);
+        return String.format("%s - %s, %s : %s", StringUtils.leftPad(this.getId().toString(), 5, "0"), author.getLastName(), author.getName(), titulo);
     }
 }
 

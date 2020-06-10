@@ -1,23 +1,22 @@
 package com.darkona.biblioteca.service;
 
-import com.darkona.biblioteca.model.Libro;
+import com.darkona.biblioteca.model.Book;
 import com.darkona.biblioteca.model.viewmodel.ViewModelLibroAutor;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 
 public interface LibroService {
 
-    List<Libro> getAllBooks();
+    List<Book> getAllBooks();
 
     List<ViewModelLibroAutor> getAllBookShort();
 
-    Libro createBook(Libro libro);
+    Book createBook(Book book);
 
-    Libro editBook(Libro l);
+    Book editBook(Book l);
 
-    Libro getBookById(Long id);
+    Book getBookById(Long id);
 
-    Libro deleteBook(Long id);
+    Book deleteBook(Long id);
 }

@@ -23,7 +23,7 @@ public class Editorial {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private String nombre;
+    private String name;
 
     @JsonIgnore
     @Column(name = "active", columnDefinition = "boolean default true")

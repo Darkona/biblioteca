@@ -40,7 +40,7 @@ public class EditorialControllerImpl implements com.darkona.biblioteca.controlle
     @Override
 
     public Editorial modifyEditorial(Integer id, Editorial e) {
-        log.info("Called method modifyEditorial");
+        log.info(String.format("Called method modifyEditorial by id: %d", id));
         return editorialService.modificarEditorial(id, e);
 
     }
@@ -48,7 +48,7 @@ public class EditorialControllerImpl implements com.darkona.biblioteca.controlle
     //Delete
     @Override
     public boolean deleteEditorial(Integer id){
-        log.info("called method deleteEditorial");
+        log.info(String.format("called method deleteEditorial by id: %d:", id));
         return editorialService.deleteEditorial(id) == null;
     }
 

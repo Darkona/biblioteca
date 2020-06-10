@@ -1,11 +1,11 @@
 package com.darkona.biblioteca.repository;
 
-import com.darkona.biblioteca.model.Libro;
+import com.darkona.biblioteca.model.Genre;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface LibroRepository extends CrudRepository<Libro, Long> {
+public interface GenreRepository extends CrudRepository <Genre, Integer> {
 
-    Libro findLibroById(long id);
+    Genre findGeneroById(int id);
 }

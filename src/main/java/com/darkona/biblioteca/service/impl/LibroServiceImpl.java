@@ -1,8 +1,8 @@
 package com.darkona.biblioteca.service.impl;
 
-import com.darkona.biblioteca.model.Libro;
+import com.darkona.biblioteca.model.Book;
 import com.darkona.biblioteca.model.viewmodel.ViewModelLibroAutor;
-import com.darkona.biblioteca.repository.LibroRepository;
+import com.darkona.biblioteca.repository.BookRepository;
 import com.darkona.biblioteca.service.LibroService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.text.WordUtils;
@@ -16,62 +16,62 @@ import java.util.stream.Collectors;
 @Service
 public class LibroServiceImpl implements LibroService {
 
-    private final LibroRepository libroRepository;
+    private final BookRepository bookRepository;
 
-    public LibroServiceImpl(LibroRepository libroRepository) {
+    public LibroServiceImpl(BookRepository bookRepository) {
 
-        this.libroRepository = libroRepository;
+        this.bookRepository = bookRepository;
     }
 
     @Override
-    public List<Libro> getAllBooks(){
+    public List<Book> getAllBooks(){
         log.info("Called");
         log.trace("Calling repository.findAll");
-        List<Libro> libros = (List<Libro>)libroRepository.findAll();
-        log.trace("Obtained "+ libros.size() + " books: " + libros.toString());
+        List<Book> books = (List<Book>) bookRepository.findAll();
+        log.trace("Obtained "+ books.size() + " books: " + books.toString());
         log.debug("Setting titles...");
-        for(Libro l : libros){
-            String titulo = WordUtils.capitalize(l.getTitulo());
-            log.trace("Setting title: " + titulo + " to " + l.getTitulo());
-            l.setTitulo(titulo);
+        for(Book l : books){
+            String titulo = WordUtils.capitalize(l.getTitle());
+            log.trace("Setting title: " + titulo + " to " + l.getTitle());
+            l.setTitle(titulo);
         }
         log.trace("Returning all books with fixed titles");
-        return libros;
+        return books;
     }
 
 
     @Override
     public List<ViewModelLibroAutor> getAllBookShort(){
-        List<Libro> libros = (List<Libro>)libroRepository.findAll();
+        List<Book> books = (List<Book>) bookRepository.findAll();
 
-        return libros
+        return books
                 .stream()
                 .map(ViewModelLibroAutor::new)
                 .collect(Collectors.toList());
     }
 
     @Override
-    public Libro createBook(Libro libro){
-        if(libro.getId() != null)libro.setId(null);
-        return libroRepository.save(libro);
+    public Book createBook(Book book){
+        if(book.getId() != null) book.setId(null);
+        return bookRepository.save(book);
     }
 
     @Override
-    public Libro editBook(Libro l){
+    public Book editBook(Book l){
         if(l.getId() != null)
-            return libroRepository.save(l);
+            return bookRepository.save(l);
         else
-            return new Libro();
+            return new Book();
     }
 
     @Override
-    public Libro getBookById(Long id) {
-        return libroRepository.findLibroById(id);
+    public Book getBookById(Long id) {
+        return bookRepository.findLibroById(id);
     }
 
     @Override
-    public Libro deleteBook(Long id){
-        libroRepository.deleteById(id);
-        return libroRepository.findLibroById(id);
+    public Book deleteBook(Long id){
+        bookRepository.deleteById(id);
+        return bookRepository.findLibroById(id);
     }
 }

@@ -1,17 +1,17 @@
 package com.darkona.biblioteca.service;
 
-import com.darkona.biblioteca.model.Genero;
+import com.darkona.biblioteca.model.Genre;
 
 import java.util.List;
 
 public interface GenreService {
-    Genero crearGenero(Genero genero);
+    Genre crearGenero(Genre genre);
 
-    Genero obtenerGeneroPorId(int id);
+    Genre obtenerGeneroPorId(int id);
 
-    List<Genero> obtenerTodosLosGeneros();
+    List<Genre> obtenerTodosLosGeneros();
 
-    Genero modificarGenero(Genero g);
+    Genre modificarGenero(Genre g);
 
-    Genero eliminarGenero(int id);
+    Genre eliminarGenero(int id);
 }

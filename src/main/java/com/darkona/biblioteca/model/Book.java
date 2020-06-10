@@ -15,11 +15,11 @@ import javax.validation.constraints.NotBlank;
 @Data
 @NoArgsConstructor
 @RequiredArgsConstructor
-@Entity(name = "Libro")
-@Table(name = "Libro")
-@SQLDelete(sql = "UPDATE libro SET active = false WHERE id = ?", check = ResultCheckStyle.COUNT)
+@Entity(name = "Book")
+@Table(name = "Book")
+@SQLDelete(sql = "UPDATE book SET active = false WHERE id = ?", check = ResultCheckStyle.COUNT)
 @Where(clause = "active = true")
-public class Libro  {
+public class Book {
 
     @Id
     @NonNull
@@ -27,13 +27,13 @@ public class Libro  {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "titulo", length = 1024)
+    @Column(name = "title", length = 1024)
     @NotBlank(message = "NO PUEDE SER UN TITULO EN BLANCO PUTO")
-    private String titulo;
+    private String title;
 
     private String ISBN;
 
-    private int edicion;
+    private int edition;
 
     private int year;
 
@@ -41,18 +41,18 @@ public class Libro  {
     private Editorial editorial;
 
     @ManyToOne
-    private Autor autor;
+    private Author author;
 
     @JsonIgnore
     @Column(name = "active", columnDefinition = "boolean default true")
     private boolean active = true;
 
     @ManyToOne
-    private Genero genero;
+    private Genre genre;
 
     @Override
     public String toString(){
-        return autor.getApellido() + ", " + autor.getNombre() +": " + titulo + ", " + edicion + " edicion (" + year + ")";
+        return author.getLastName() + ", " + author.getName() +": " + title + ", " + edition + " edition (" + year + ")";
     }
 
 }

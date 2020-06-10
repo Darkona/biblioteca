@@ -2,7 +2,7 @@ package com.darkona.biblioteca.controller.impl;
 
 import com.darkona.biblioteca.controller.BookController;
 import com.darkona.biblioteca.exception.ResourceNotFoundException;
-import com.darkona.biblioteca.model.Libro;
+import com.darkona.biblioteca.model.Book;
 import com.darkona.biblioteca.model.viewmodel.ViewModelLibroAutor;
 import com.darkona.biblioteca.service.LibroService;
 import lombok.extern.slf4j.Slf4j;
@@ -21,23 +21,23 @@ public class BookControllerImpl implements BookController {
 
 
     @Override
-    public Libro bookDetails(Long id) {
+    public Book bookDetails(Long id) {
 
         log.info("Called with id %d", id);
         return libroService.getBookById(id);
     }
 
     @Override
-    public List<Libro> allBooks() {
+    public List<Book> allBooks() {
 
-        log.info("Called");
+        log.info("Called method allBooks");
         return libroService.getAllBooks();
     }
 
     @Override
     public List<String> allTitles() {
 
-        log.info("Called");
+        log.info("Called method allTitles");
         return libroService.getAllBookShort()
                 .stream()
                 .map(ViewModelLibroAutor::toString)
@@ -45,20 +45,20 @@ public class BookControllerImpl implements BookController {
     }
 
     @Override
-    public Libro createBook(Libro libro) {
+    public Book createBook(Book book) {
 
-        log.info("Called");
-        return libroService.createBook(libro);
+        log.info("Called method createBook");
+        return libroService.createBook(book);
     }
 
 
     @Override
-    public Libro editBook(Long id, Libro libro) {
+    public Book editBook(Long id, Book book) {
 
-        log.info("Called");
+        log.info(String.format("Called method editBook by id: %d", id));
         if (libroService.getBookById(id) != null) {
-            libro.setId(id);
-            return libroService.editBook(libro);
+            book.setId(id);
+            return libroService.editBook(book);
         }
         throw new ResourceNotFoundException();
     }
@@ -66,7 +66,7 @@ public class BookControllerImpl implements BookController {
     @Override
     public boolean deleteBook(Long id) {
 
-        log.info("Called");
+        log.info("Called method deleteBook by id: %d:", id);
         return libroService.deleteBook(id) == null;
     }
 }

@@ -1,6 +1,6 @@
 package com.darkona.biblioteca.controller;
 
-import com.darkona.biblioteca.model.Libro;
+import com.darkona.biblioteca.model.Book;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,19 +15,19 @@ import java.util.List;
 public interface BookController {
 
     @GetMapping(path ="/{id}")
-    Libro bookDetails(@PathVariable Long id);
+    Book bookDetails(@PathVariable Long id);
 
     @GetMapping(path = "/list")
-    List<Libro> allBooks();
+    List<Book> allBooks();
 
     @GetMapping(path = "/list/titles")
     List<String> allTitles();
 
     @PostMapping(path = "", consumes = MediaType.APPLICATION_JSON_VALUE)
-    Libro createBook(@Valid @RequestBody Libro libro);
+    Book createBook(@Valid @RequestBody Book book);
 
     @PutMapping(path = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
-    Libro editBook(@PathVariable("id") Long id, @RequestBody Libro libro);
+    Book editBook(@PathVariable("id") Long id, @RequestBody Book book);
 
     @DeleteMapping(path = "/{id}")
     boolean deleteBook(@PathVariable("id") Long id);

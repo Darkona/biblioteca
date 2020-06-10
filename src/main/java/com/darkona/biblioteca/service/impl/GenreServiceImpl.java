@@ -1,7 +1,7 @@
 package com.darkona.biblioteca.service.impl;
 
-import com.darkona.biblioteca.model.Genero;
-import com.darkona.biblioteca.repository.GeneroRepository;
+import com.darkona.biblioteca.model.Genre;
+import com.darkona.biblioteca.repository.GenreRepository;
 import org.apache.commons.text.WordUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,40 +12,41 @@ import java.util.List;
 public class GenreServiceImpl implements com.darkona.biblioteca.service.GenreService {
 
     @Autowired
-    private GeneroRepository generoRepository;
+    private GenreRepository genreRepository;
 
     @Override
-    public Genero crearGenero(Genero genero){
-        if(genero.getId() != null){genero.setId(null);}
-        return generoRepository.save(genero);
+    public Genre crearGenero(Genre genre){
+        if(genre.getId() != null){
+            genre.setId(null);}
+        return genreRepository.save(genre);
     }
 
     @Override
-    public Genero obtenerGeneroPorId(int id){ return generoRepository.findGeneroById(id);}
+    public Genre obtenerGeneroPorId(int id){ return genreRepository.findGeneroById(id);}
 
     @Override
-    public List<Genero> obtenerTodosLosGeneros(){
-        List<Genero> generos = (List<Genero>)generoRepository.findAll();
+    public List<Genre> obtenerTodosLosGeneros(){
+        List<Genre> genres = (List<Genre>) genreRepository.findAll();
 
-        for(Genero g : generos){
-            g.setNombre(WordUtils.capitalize(g.getNombre()));
+        for(Genre g : genres){
+            g.setName(WordUtils.capitalize(g.getName()));
         }
-        return generos;
+        return genres;
     }
 
     @Override
-    public Genero modificarGenero(Genero g){
+    public Genre modificarGenero(Genre g){
         if(g.getId()!= null) {
-            return generoRepository.save(g);
+            return genreRepository.save(g);
         }else{
-            return new Genero();
+            return new Genre();
         }
     }
 
     @Override
-    public Genero eliminarGenero(int id){
-        generoRepository.deleteById(id);
-        return generoRepository.findGeneroById(id);
+    public Genre eliminarGenero(int id){
+        genreRepository.deleteById(id);
+        return genreRepository.findGeneroById(id);
     }
 
 

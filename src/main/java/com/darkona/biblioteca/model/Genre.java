@@ -15,14 +15,14 @@ import javax.persistence.*;
 @Table
 @SQLDelete(sql = "UPDATE genero SET active = false WHERE id = ?", check = ResultCheckStyle.COUNT)
 @Where(clause = "active = true")
-public class Genero {
+public class Genre {
 
     @Id
     @NonNull
     @Column(name = "id", updatable = false, nullable = false, unique = true)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id ;
-    private String nombre;
+    private String name;
 
     @JsonIgnore
     @Column(name = "active", columnDefinition = "boolean default true")
@@ -30,6 +30,6 @@ public class Genero {
 
     @Override
     public String toString(){
-        return String.format("Id: %d , %s", id, nombre);
+        return String.format("Id: %d , %s", id, name);
     }
 }

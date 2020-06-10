@@ -1,17 +1,17 @@
 package com.darkona.biblioteca.service;
 
-import com.darkona.biblioteca.model.Autor;
+import com.darkona.biblioteca.model.Author;
 
 import java.util.List;
 
 public interface AuthorService {
-    Autor crearAutor(Autor autor);
+    Author crearAutor(Author author);
 
-    Autor obtenerAutorPorId(int id);
+    Author obtenerAutorPorId(int id);
 
-    List<Autor> obtenerTodosLosAutores();
+    List<Author> obtenerTodosLosAutores();
 
-    Autor modificarAutor(Autor a);
+    Author modificarAutor(Author a);
 
-    Autor eliminarAutor(int id);
+    Author eliminarAutor(int id);
 }
