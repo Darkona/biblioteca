@@ -3,7 +3,7 @@ package com.darkona.biblioteca.controller.impl;
 import com.darkona.biblioteca.controller.BookController;
 import com.darkona.biblioteca.exception.ResourceNotFoundException;
 import com.darkona.biblioteca.model.Book;
-import com.darkona.biblioteca.model.viewmodel.ViewModelLibroAutor;
+import com.darkona.biblioteca.model.viewmodel.ViewModelBookAuthor;
 import com.darkona.biblioteca.service.BookService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,7 +40,7 @@ public class BookControllerImpl implements BookController {
         log.info("Called method allTitles");
         return bookService.getAllBookShort()
                 .stream()
-                .map(ViewModelLibroAutor::toString)
+                .map(ViewModelBookAuthor::toString)
                 .collect(Collectors.toList());
     }
 

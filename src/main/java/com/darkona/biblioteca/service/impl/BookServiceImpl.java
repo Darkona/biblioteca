@@ -1,7 +1,7 @@
 package com.darkona.biblioteca.service.impl;
 
 import com.darkona.biblioteca.model.Book;
-import com.darkona.biblioteca.model.viewmodel.ViewModelLibroAutor;
+import com.darkona.biblioteca.model.viewmodel.ViewModelBookAuthor;
 import com.darkona.biblioteca.repository.BookRepository;
 import com.darkona.biblioteca.service.BookService;
 import lombok.extern.slf4j.Slf4j;
@@ -41,12 +41,12 @@ public class BookServiceImpl implements BookService {
 
 
     @Override
-    public List<ViewModelLibroAutor> getAllBookShort(){
+    public List<ViewModelBookAuthor> getAllBookShort(){
         List<Book> books = (List<Book>) bookRepository.findAll();
 
         return books
                 .stream()
-                .map(ViewModelLibroAutor::new)
+                .map(ViewModelBookAuthor::new)
                 .collect(Collectors.toList());
     }
 

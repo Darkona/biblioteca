@@ -7,21 +7,21 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.text.WordUtils;
 
 @Data
-public class ViewModelLibroAutor {
+public class ViewModelBookAuthor {
 
     private Long id;
-    private String titulo;
+    private String title;
     private Author author;
 
-    public ViewModelLibroAutor(Book l){
+    public ViewModelBookAuthor(Book l){
         this.id = l.getId();
-        this.titulo = WordUtils.capitalize(l.getTitle());
+        this.title = WordUtils.capitalize(l.getTitle());
         this.author = l.getAuthor();
     }
 
     @Override
     public String toString(){
-        return String.format("%s - %s, %s : %s", StringUtils.leftPad(this.getId().toString(), 5, "0"), author.getLastName(), author.getName(), titulo);
+        return String.format("%s - %s, %s : %s", StringUtils.leftPad(this.getId().toString(), 5, "0"), author.getLastName(), author.getName(), title);
     }
 }
 
